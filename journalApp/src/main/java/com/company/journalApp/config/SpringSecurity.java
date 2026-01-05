@@ -41,9 +41,9 @@ public class SpringSecurity {
 //    }
 
 
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception{
-        auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
-    }
+    // protected void configure(AuthenticationManagerBuilder auth) throws Exception{
+    //     auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+    // }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
