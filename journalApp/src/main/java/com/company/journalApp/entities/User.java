@@ -29,4 +29,6 @@ public class User {
     List<JournalEntry> journalEntries = new ArrayList<>();  // acts as a kind of foriegn key it stores a reference of
     // JournalEntry entity
 
+    List<String> roles = new ArrayList<>();
+
 }
