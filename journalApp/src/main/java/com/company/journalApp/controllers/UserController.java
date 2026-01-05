@@ -38,7 +38,7 @@ public class UserController {
 
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+    // delete mapping
     @DeleteMapping
     public ResponseEntity<?> deleteByUserId(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
