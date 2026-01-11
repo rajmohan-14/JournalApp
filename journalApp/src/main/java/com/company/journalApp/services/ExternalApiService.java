@@ -1,6 +1,7 @@
 package com.company.journalApp.services;
 
 import com.company.journalApp.api.dummy.DemoAPI;
+import com.company.journalApp.cache.AppCache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
@@ -13,8 +14,11 @@ public class ExternalApiService {
     @Autowired
     private RestTemplate restTemplate;
 
+    @Autowired
+    private AppCache appCache;
+
     public DemoAPI getAPIresponse(){
-        String apiTocall = "your-final-api-with-API-key-and-any-parameter";
+        String apiTocall = appCache.cacheMap.get("weather_api");   // fetches from the app cache
         ResponseEntity<DemoAPI> response = restTemplate.exchange(apiTocall, HttpMethod.GET, null, DemoAPI.class);
         DemoAPI body = response.getBody();
         return body;
