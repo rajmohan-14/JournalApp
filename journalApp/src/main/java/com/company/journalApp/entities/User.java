@@ -25,6 +25,9 @@ public class User {
     @NonNull
     private String password;
 
+    private String email;
+    private boolean sentimentAnalysis;
+
     @DBRef
     List<JournalEntry> journalEntries = new ArrayList<>();  // acts as a kind of foriegn key it stores a reference of
     // JournalEntry entity

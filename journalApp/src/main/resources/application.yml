@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: journalApp
+  data:
+    mongodb:
+      uri: mongodb+srv://rajyash3176_db_user:samplepsWd@cluster0.extbzgn.mongodb.net/?appName=Cluster0
+      database: journaldb
+      auto-index-creation: true
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: j2928569@gmail.com
+    password: frmh vplp awyr figy
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
