@@ -19,10 +19,24 @@ public class ExternalApiService {
     @Autowired
     private AppCache appCache;
 
-    public DemoAPI getAPIresponse(){
-        String apiTocall = appCache.cacheMap.get("weather_api");   // fetches from the app cache
-        ResponseEntity<DemoAPI> response = restTemplate.exchange(apiTocall, HttpMethod.GET, null, DemoAPI.class);
-        DemoAPI body = response.getBody();
-        return body;
+    @Autowired
+    RedisService redisService;
+
+    public DemoAPI getAPIresponse(String city){
+        DemoAPI apiResponse = redisService.get(city, DemoAPI.class);
+        if(apiResponse != null){
+            return apiResponse;
+        }
+        else {
+            String apiTocall = appCache.cacheMap.get("weather_api");   // fetches from the app cache
+            ResponseEntity<DemoAPI> response = restTemplate.exchange(apiTocall, HttpMethod.GET, null, DemoAPI.class);
+            DemoAPI body = response.getBody();
+
+            if(body != null)
+                redisService.set(city, body, 300l);
+
+            return body;
+        }
+
     }
 }

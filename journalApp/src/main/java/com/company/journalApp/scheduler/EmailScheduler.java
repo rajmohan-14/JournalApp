@@ -27,9 +27,6 @@ public class EmailScheduler {
     private UserRepositoryImpl userRepository;
 
     @Autowired
-    private Sentiment sentiment;
-
-    @Autowired
     private AppCache appCache;
 
     @Scheduled(cron = "0 0 8 * * SUN")

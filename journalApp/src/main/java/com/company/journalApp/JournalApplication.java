@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.MongoTransactionManager;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableTransactionManagement
